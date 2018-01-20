@@ -42,7 +42,6 @@ class Posts extends CI_Controller
         else
         {
             $this->post_model->createPost();
-            echo "OK";
         }
     }
 }
