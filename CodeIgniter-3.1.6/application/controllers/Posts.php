@@ -42,6 +42,12 @@ class Posts extends CI_Controller
         else
         {
             $this->post_model->createPost();
+            redirect('posts');
         }
+    }
+    public function delete($id)
+    {
+        $this->post_model->deletePost($id);
+        redirect('posts');
     }
 }

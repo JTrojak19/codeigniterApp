@@ -16,6 +16,7 @@ class Post_model extends CI_Model
     {
         if ($id === FALSE)
         {
+            $this->db->order_by('id', 'DESC');
             $query = $this->db->get('posts');
             return $query->result_array();
         }
@@ -33,5 +34,11 @@ class Post_model extends CI_Model
         );
         print_r($data);
         return $this->db->insert('posts', $data);
+    }
+    public function deletePost($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('posts');
+        return true;
     }
 }
